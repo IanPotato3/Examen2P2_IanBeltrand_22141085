@@ -13,14 +13,16 @@ public class HiloReproducir extends Thread{
     private boolean reproducir;
     private boolean pausar;
     private Canciones song;
+    private boolean tiempo;
     
     //Constructores y Mutadores
-    public HiloReproducir(JProgressBar bar, JTextArea AreaTexto, Canciones song) {
+    public HiloReproducir(JProgressBar bar, JTextArea AreaTexto, Canciones song, boolean tiempo) {
         this.bar = bar;
         this.AreaTexto = AreaTexto;
         this.song = song;
         reproducir = true;
         pausar = false;
+        this.tiempo = tiempo;
     }
 
     public JProgressBar getBar() {
@@ -89,6 +91,7 @@ public class HiloReproducir extends Thread{
                 
                 if(Contador == song.getLetra().length() - 1){
                     reproducir = false;
+                    tiempo = false;
                 }
             }else{
                 bar.setValue(bar.getValue()-10);

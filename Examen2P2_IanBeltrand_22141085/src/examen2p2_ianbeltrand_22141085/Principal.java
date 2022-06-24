@@ -227,9 +227,10 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         LabelTotal.setText("Reproduciendo: " + cancionActual.getNombre());
         CancionTexto.setText("");
-        ReproducirSong = new HiloReproducir(NotaBarra, CancionTexto, cancionActual);
+        ReproducirSong = new HiloReproducir(NotaBarra, CancionTexto, cancionActual, tiempo);
         Thread proceso = new Thread(ReproducirSong);
         proceso.start();
+        
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void PausarCancionButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PausarCancionButtonMouseClicked
@@ -302,4 +303,5 @@ public class Principal extends javax.swing.JFrame {
     Canciones cancionActual;
     DefaultMutableTreeNode SelectedNode;
     int PausaV = 0;
+    boolean tiempo = true;
 }
